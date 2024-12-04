@@ -1,0 +1,91 @@
+{
+  "CouriersList": [
+    {
+      "CourierID": 1,
+      "UserID": 101,
+      "FullName": "John Doe",
+      "VehicleID": 5,
+      "Rating": 4,
+      "Availability": true,
+      "ContactPhone": "+1-800-555-1234"
+    },
+    {
+      "CourierID": 2,
+      "UserID": 102,
+      "FullName": "Jane Smith",
+      "VehicleID": 3,
+      "Rating": 5,
+      "Availability": false,
+      "ContactPhone": "+1-800-555-5678"
+    },
+    {
+      "CourierID": 3,
+      "UserID": 103,
+      "FullName": "Carlos Mendez",
+      "VehicleID": 2,
+      "Rating": 3,
+      "Availability": true,
+      "ContactPhone": "+1-800-555-9876"
+    }
+  ],
+  "shipmentsList": [
+    {
+      "ShipmentID": 1,
+      "SenderID": 101,
+      "CourierID": 1,
+      "PickupLocation": "123 Elm St, Springfield, IL",
+      "DropoffLocation": "789 Maple Dr, Chicago, IL",
+      "Status": "In Transit",
+      "PickupDateTime": "2024-11-01T12:00:00"
+    },
+    {
+      "ShipmentID": 2,
+      "SenderID": 102,
+      "CourierID": 2,
+      "PickupLocation": "456 Oak Ave, Rivertown, OH",
+      "DropoffLocation": "321 Birch Blvd, Dayton, OH",
+      "Status": "Delivered",
+      "PickupDateTime": "2024-11-02T10:00:00"
+    }
+  ],
+  "PaymentsList": [
+    {
+      "PaymentDate": "2024-11-01T10:00:00",
+      "Status": "Completed",
+      "PaymentMethod": 1,
+      "Amount": 150,
+      "ShipmentID": 1,
+      "PaymentID": 1001,
+      "MyProperty": 12345
+    },
+    {
+      "PaymentDate": "2024-11-02T15:30:00",
+      "Status": "Pending",
+      "PaymentMethod": 2,
+      "Amount": 75,
+      "ShipmentID": 2,
+      "PaymentID": 1002,
+      "MyProperty": 67890
+    }
+  ],
+  "packageOrdererList": [
+    {
+      "OrdererID": 1,
+      "FullName": "Emily Johnson",
+      "ContactPhone": "+1-800-555-2345",
+      "Email": "emily.johnson@email.com",
+      "HomeAddress": "123 Elm St, Springfield, IL",
+      "DeliveryPreferences": "Leave package at the front door.",
+      "Status": "Pending"
+    },
+    {
+      "OrdererID": 2,
+      "FullName": "Michael Brown",
+      "ContactPhone": "+1-800-555-6789",
+      "Email": "michael.brown@email.com",
+      "HomeAddress": "456 Oak Ave, Rivertown, OH",
+      "DeliveryPreferences": "Ring the bell when delivering.",
+      "Status": "Shipped"
+    }
+  ]
+}
