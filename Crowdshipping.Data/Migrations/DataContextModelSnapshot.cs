@@ -41,7 +41,7 @@ namespace Crowdshipping.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Rating")
+                    b.Property<int?>("Rating")
                         .HasColumnType("int");
 
                     b.Property<int>("UserID")
@@ -68,11 +68,9 @@ namespace Crowdshipping.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DeliveryPreferences")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
@@ -80,7 +78,6 @@ namespace Crowdshipping.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HomeAddress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
@@ -121,6 +118,8 @@ namespace Crowdshipping.Data.Migrations
 
                     b.HasKey("PaymentID");
 
+                    b.HasIndex("ShipmentID");
+
                     b.ToTable("Payment");
                 });
 
@@ -156,7 +155,31 @@ namespace Crowdshipping.Data.Migrations
 
                     b.HasKey("ShipmentID");
 
+                    b.HasIndex("CourierID");
+
                     b.ToTable("Shipment");
+                });
+
+            modelBuilder.Entity("ClassLibrary1.core.Entities.Payment", b =>
+                {
+                    b.HasOne("ClassLibrary1.core.Entities.Shipment", "Shipment")
+                        .WithMany()
+                        .HasForeignKey("ShipmentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Shipment");
+                });
+
+            modelBuilder.Entity("ClassLibrary1.core.Entities.Shipment", b =>
+                {
+                    b.HasOne("ClassLibrary1.core.Entities.Courier", "courier")
+                        .WithMany()
+                        .HasForeignKey("CourierID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("courier");
                 });
 #pragma warning restore 612, 618
         }

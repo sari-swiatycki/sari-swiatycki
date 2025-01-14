@@ -20,5 +20,8 @@ namespace ClassLibrary1.core.Entities
         public string DropoffLocation { get; set; }
         public string Status { get; set; }
         public string PickupDateTime { get; set; }
+
+        [ForeignKey(nameof(CourierID))]
+        public Courier courier { get; set; }
     }
 }
